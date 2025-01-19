@@ -1,0 +1,17 @@
+pause
+ffmpeg -i Elephant.mp4 2>&1 | sed -n "s/.*, \(.*\) fp.*/\1/p"
+ffmpeg -i Elephant.mp4 -qmin 1 -qscale:v 1 ./rgb/%06d.jpg
+poetry shell
+python depth.py
+python average.py
+python merge.py
+
+ffmpeg -framerate 30 -i ./merged/%06d.jpg -vcodec libx264 -pix_fmt yuv420p Elephant_depth.mp4
+ffmpeg -i Elephant_depth.mp4 -i ./Elephant.mp4 -c copy -map 0:0 -map 1:1 -shortest Elephant_depth_sound.mp4
+ffmpeg -i Elephant_depth.mp4 -vf "scale=1920:1080:flags=lanczos" -c:v libx264 -preset veryfast -crf 25 output123.mp4
+
+
+
+$env:https_proxy="http://127.0.0.1:33210" 
+$env:http_proxy="http://127.0.0.1:33210" 
+$env:all_proxy="socks5://127.0.0.1:33211"

@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "video-depthify"
+version = "0.1.0"
+description = ""
+authors = ["Fu Ding <heading@sina.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+torch = "^2.3.0"
+torchvision = "^0.18.0"
+opencv-python = "^4.10.0.82"
+timm = "^1.0.3"
+pillow = "^10.3.0"
+numpy = "^1.26.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[[tool.poetry.source]]
+name = "tsinghua"
+priority = "default"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+
