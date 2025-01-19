@@ -92,3 +92,8 @@ BoostingMonocularDepth does not always provide better results compared to vanill
 **BoostingMonocularDepth result**:
 
 ![Demo Boosting](https://github.com/jankais3r/Video-Depthify/blob/main/demo2_boosting.gif)
+
+
+
+*) script.txt is a shell command to clip video
+**) program has been modified so its not as README displayed, but similar.
